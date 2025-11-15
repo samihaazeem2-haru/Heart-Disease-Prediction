@@ -27,7 +27,7 @@ target – 1 = presence of heart disease, 0 = absence of heart disease
 
 Source: UCI Heart Disease Dataset (available on Kaggle)
 
-Methodology
+#Methodology
 
 Data Exploration & Cleaning
 
