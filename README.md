@@ -42,6 +42,7 @@ Scaled features for Logistic Regression.
 3. Models
 
 Logistic Regression: interpretable, outputs probability of disease.
+
 Decision Tree: captures non-linear relationships, provides feature importance.
 
 4. Evaluation Metrics
