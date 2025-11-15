@@ -1,84 +1,73 @@
 Heart Disease Prediction – By Samiha Azeem
 Objective
+We want to guess if someone might have heart disease using information about their health, like age, blood pressure, and heart rate. The idea is to make a simple and smart tool that helps predict the risk.
 
-Predict whether a person is at risk of heart disease based on health data using machine learning models. The goal is to provide a simple, interpretable, and accurate predictive tool.
+About the Data
 
-Dataset
+The dataset has 13 health features and 1 target:
 
-Columns / Features:
-
-age – Age of patient
+age – How old the person is
 sex – 1 = male, 0 = female
-cp – Chest pain type (0–3)
-trestbps – Resting blood pressure (mm Hg)
-chol – Serum cholesterol (mg/dl)
-fbs – Fasting blood sugar > 120 mg/dl (1 = true; 0 = false)
-restecg – Resting electrocardiographic results (0–2)
+cp – Type of chest pain (0–3)
+trestbps – Blood pressure at rest
+chol – Cholesterol level
+fbs – Fasting blood sugar > 120 (1 = yes, 0 = no)
+restecg – Resting ECG result (0–2)
 thalach – Maximum heart rate achieved
-exang – Exercise-induced angina (1 = yes; 0 = no)
-oldpeak – ST depression induced by exercise relative to rest
-slope – Slope of the peak exercise ST segment (0–2)
-ca – Number of major vessels colored by fluoroscopy (0–3)
-thal – Thalassemia (1 = normal; 2 = fixed defect; 3 = reversible defect)
+exang – Exercise induced angina (1 = yes, 0 = no)
+oldpeak – ST depression after exercise
+slope – Slope of ST segment (0–2)
+ca – Number of major blood vessels
+thal – Thalassemia type (1,2,3)
 
 Target:
 
-target – 1 = presence of heart disease, 0 = absence of heart disease
+target – 1 = has heart disease, 0 = does not have heart disease
 
-Source: UCI Heart Disease Dataset (available on Kaggle)
+How We Did It
 
-Methodology
+Look at the data
+Checked for missing values (there were none)
+Made plots to see patterns
+Split into training (80%) and testing (20%)
+Scaled numbers for Logistic Regression
 
-1. Data Exploration & Cleaning
+Models Used
 
-Checked for missing values; no cleaning required.
-Visualized target distribution and feature correlations.
+Logistic Regression: gives a probability of having heart disease
+Decision Tree: decides step by step which features are most important
 
-2. Preprocessing
+Check performance
 
-Split dataset into train (80%) and test (20%) sets.
-Scaled features for Logistic Regression.
-
-3. Models
-
-Logistic Regression: interpretable, outputs probability of disease.
-
-Decision Tree: captures non-linear relationships, provides feature importance.
-
-4. Evaluation Metrics
-
-Accuracy
-Confusion Matrix
-ROC Curve & AUC
-
-Feature Importance Analysis
+Accuracy – How often the model is correct
+Confusion Matrix – Shows correct vs wrong predictions
+ROC Curve – Shows how well the model separates sick and healthy people
+Feature Importance – Which features matter most
 
 Results
-Model	                        Accuracy	            ROC-AUC
-Logistic Regression	            0.852	                0.91
-Decision Tree	                  0.852	                0.88
+Model	Accuracy	ROC-AUC
+Logistic Regression	0.85	0.91
+Decision Tree	0.85	0.88
 
 Observations:
 
-Both models perform similarly (~85% accuracy).
-Logistic Regression is easier to interpret via coefficients.
-Decision Tree highlights the most important features for splitting.
-Top features across models: cp (chest pain), oldpeak (ST depression), ca (number of vessels).
+Both models are correct about 85% of the time
+Logistic Regression shows how each feature affects risk
+Decision Tree shows which features are most important for decision-making
+Most important features: chest pain (cp), ST depression (oldpeak), number of vessels (ca)
 
 Feature Importance
 
-Logistic Regression (Top features): cp, slope, thalach
-Coefficients indicate the direction of impact on disease risk.
-Decision Tree (Top features): cp, ca, oldpeak, exang, age
-Feature importance shows how much a feature contributes to splitting decisions.
+Logistic Regression: cp, slope, thalach – shows which features increase or decrease risk
+Decision Tree: cp, ca, oldpeak, exang, age – shows which features the tree uses to make decisions
 
-ROC Curve: ROC (Receiver Operating Characteristic) plots the True Positive Rate (TPR) vs False Positive Rate (FPR) across thresholds.
+ROC Curve
 
-AUC (Area Under Curve) measures overall model performance (closer to 1 = better).
-ROC curves are useful for imbalanced datasets like medical data.
+ROC shows how well the model separates sick and healthy people
+AUC (area under curve) closer to 1 → better model
 
 Exploratory Data Analysis (EDA)
 
-Target distribution shows a balance between disease and no disease.
-Correlation heatmap helps identify influential features.
-Strongest predictors: cp, oldpeak, ca, exang.
+We checked the data with charts
+Target is pretty balanced
+Most important features: cp, oldpeak, ca, exang
