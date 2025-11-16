@@ -1,4 +1,6 @@
 Heart Disease Prediction – By Samiha Azeem
+
+
 Objective
 We want to guess if someone might have heart disease using information about their health, like age, blood pressure, and heart rate. The idea is to make a simple and smart tool that helps predict the risk.
 
